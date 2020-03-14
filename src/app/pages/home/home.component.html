@@ -1,0 +1,11 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav opened mode="side">
+        <button mat-button [routerLink]="['/pessoa']" routerLinkActive="router-link-active">Pessoa</button>
+        <button mat-button [routerLink]="['/configuracoes']" routerLinkActive="router-link-active">Config</button>
+    </mat-sidenav>
+    <mat-toolbar>
+        <button (click)="sidenav.toggle()" mat-icon-button><mat-icon>menu</mat-icon></button>
+        <span>Curso angular</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</mat-sidenav-container>

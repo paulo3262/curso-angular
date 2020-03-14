@@ -1,0 +1,21 @@
+<div class="form">
+    <form [formGroup]="form" class="example-form" (ngSubmit)="send(form.value)">
+        <div fxLayout="row wrap" fxLayoutAlign='start start'>
+            
+
+            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
+            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
+            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
+            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
+            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
+            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
+            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
+
+
+            <curso-angular-nosso-btn fxFlex="50%" fxFlex.md="40%" fxFlex.gt-sm="100%" label="nome do botão"></curso-angular-nosso-btn>
+        </div>
+
+
+        <button mat-button [disabled]="form.invalid">Enviar</button>
+    </form>
+</div>

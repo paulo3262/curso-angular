@@ -1,0 +1,26 @@
+<p>configuracoes works!</p>
+<ngu-carousel #myCarousel [inputs]="carouselTile" [dataSource]="carouselTileItems">
+    <ngu-tile *nguCarouselDef="let item; let i = index">
+   
+      <ngu-carousel #myCarousel [inputs]="carouselTile" (carouselLoad)="carouselTileLoad(i)" [dataSource]="carouselTiles[i]">
+        <ngu-tile *nguCarouselDef="let item; let j = index">
+          <div class="tile" [style.background]="'url(' + item + ')'" style="min-height: 200px">
+            <h1>{{j}}</h1>
+          </div>
+        </ngu-tile>
+        <button  NguCarouselPrev class="leftLt" [disabled]="myCarousel.isFirst" mat-mini-fab>
+            <mat-icon>arrow_left</mat-icon>
+        </button>
+        <button  NguCarouselNext class="leftRs" [disabled]="myCarousel.isLast" mat-mini-fab>
+            <mat-icon>arrow_right</mat-icon>
+        </button>
+        <ul class="myPoint" NguCarouselPoint>
+          <li *ngFor="let elemento2 of myCarousel.pointNumbers; let i = index" [class.active]="i==myCarousel.activePoint" (click)="myCarousel.moveTo(i)"
+            [style.background]="'url(' + carouselTileItems[i] + ')'"></li>
+        </ul>
+      </ngu-carousel>
+   
+    </ngu-tile>
+  </ngu-carousel>
+
+  <curso-angular-nosso-btn fxFlex="50%" fxFlex.md="40%" fxFlex.gt-sm="100%" label="nome do botão"></curso-angular-nosso-btn>

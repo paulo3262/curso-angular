@@ -1,0 +1,21 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-container mat-sidenav {
+    width: 300px;
+}
+
+.div-menu {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .div-menu {
+    display: none;
+  }
+}
