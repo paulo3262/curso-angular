@@ -1,7 +1,10 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav opened mode="side">
-        <button mat-button [routerLink]="['/pessoa']" routerLinkActive="router-link-active">Pessoa</button>
-        <button mat-button [routerLink]="['/configuracoes']" routerLinkActive="router-link-active">Config</button>
+        <div fxLayout="row wrap" style="width: 100%;">
+            <button fxFlex="100%" mat-button [routerLink]="['/pessoa']" routerLinkActive="router-link-active">Pessoa</button>
+            <button fxFlex="100%" mat-button [routerLink]="['/configuracoes']" routerLinkActive="router-link-active">Config</button>
+            <button fxFlex="100%" mat-button [routerLink]="['/grid']" routerLinkActive="router-link-active">Config</button>
+        </div>
     </mat-sidenav>
     <mat-toolbar>
         <button (click)="sidenav.toggle()" mat-icon-button><mat-icon>menu</mat-icon></button>

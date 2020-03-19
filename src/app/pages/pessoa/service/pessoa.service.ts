@@ -9,8 +9,8 @@ export class PessoaService {
   constructor(public http: HttpClient) { }
 
   save(dadosDoFormulario: any): Observable<boolean> {
-    return this.http.post('apifsdfdihf', dadosDoFormulario).pipe(map((resposta: any) => {
-      if (!resposta.success) {
+    return this.http.post('api', dadosDoFormulario).pipe(map((resposta: any) => {
+      if (resposta.success) {
         return true;
       } else {
         return false;

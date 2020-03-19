@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'configuracoes',
         loadChildren: () => import('src/app/configuracoes/configuracoes.module').then(m => m.ConfiguracoesModule)
+      },
+      {
+        path: 'grid',
+        loadChildren: () => import('src/app/pages/grid/grid.module').then(m => m.GridModule)
       }
     ]
   },
@@ -35,6 +40,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    FlexLayoutModule,
     ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,

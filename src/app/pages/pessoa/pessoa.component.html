@@ -1,21 +1,28 @@
 <div class="form">
-    <form [formGroup]="form" class="example-form" (ngSubmit)="send(form.value)">
+    <form #form="ngForm" class="example-form" (ngSubmit)="send(form.value)">
         <div fxLayout="row wrap" fxLayoutAlign='start start'>
+            <mat-form-field fxFlex="100%" fxFlex.gt-sm="50%">
+                <input matInput placeholder="nome" name="nome" required ngModel>
+            </mat-form-field>
+            <mat-form-field fxFlex="100%" fxFlex.gt-sm="50%">
+                <input matInput placeholder="email" type="email" name="email" email required ngModel>
             
-
-            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
-            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
-            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
-            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
-            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
-            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
-            <lib-componentes formControlName="componenteNovo"></lib-componentes> 
-
-
-            <curso-angular-nosso-btn fxFlex="50%" fxFlex.md="40%" fxFlex.gt-sm="100%" label="nome do botão"></curso-angular-nosso-btn>
+                <mat-error *ngIf="form.control.get('email').hasError('email')">Email errado</mat-error>
+                <mat-error *ngIf="form.control.get('email').hasError('required')"> Obrigatório</mat-error>
+            
+            </mat-form-field>  
+            <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign='center center'>
+                <mat-form-field fxFlex="100%" fxFlex.gt-sm="50%" fxFlexAlign="center">
+                    <input matInput placeholder="telefone" name="telefone" ngModel>
+                </mat-form-field>       
+            </div>
         </div>
-
-
-        <button mat-button [disabled]="form.invalid">Enviar</button>
+        <button mat-raised-button color="primary" [disabled]="form.invalid || loading">Enviar</button>
     </form>
 </div>
+
+<!-- 
+
+    fxFlex="" aplicará quando a tela for do tamanho do celular 
+    fxFlex-gt-sm="" isto aplicará quando o tamanho da tela for para computador e tablet
+ -->
