@@ -19,7 +19,11 @@
         </div>
         <button mat-raised-button color="primary" [disabled]="form.invalid || loading">Enviar</button>
     </form>
+
+    <curso-angular-grid (selecionou)="selecionounaGrid($event)" [dataSource]="employes" [colunas]="colunas"></curso-angular-grid>
+    <curso-angular-grid [exibirFiltroColuna]="false" [dataSource]="employes2" [colunas]="colunas2"></curso-angular-grid>
 </div>
+
 
 <!-- 
 

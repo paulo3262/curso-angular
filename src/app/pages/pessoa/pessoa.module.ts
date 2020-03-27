@@ -11,6 +11,7 @@ import { NossoBtnModule } from 'src/app/components/nosso-btn/nosso-btn.module';
 import { ComponentesModule } from 'componentes';
 import {PessoaService} from './service/pessoa.service';
 import { HttpClientModule } from '@angular/common/http';
+import { GridModule } from '../grid/grid.module';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
     NossoBtnModule,
     ComponentesModule,
     RouterModule.forChild(routes),
-    HttpClientModule
+    HttpClientModule,
+    GridModule,
   ],
   exports: [
     RouterModule

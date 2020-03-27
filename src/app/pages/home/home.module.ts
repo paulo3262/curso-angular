@@ -9,6 +9,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { GridModule } from '../grid/grid.module';
 
 const routes: Routes = [
   {
@@ -23,10 +24,10 @@ const routes: Routes = [
         path: 'configuracoes',
         loadChildren: () => import('src/app/configuracoes/configuracoes.module').then(m => m.ConfiguracoesModule)
       },
-      {
-        path: 'grid',
-        loadChildren: () => import('src/app/pages/grid/grid.module').then(m => m.GridModule)
-      }
+      // {
+      //   path: 'grid',
+      //   loadChildren: () => import('src/app/pages/grid/grid.module').then(m => m.GridModule)
+      // }
     ]
   },
 ];
@@ -46,6 +47,7 @@ const routes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
+    GridModule,
     RouterModule.forChild(routes),
   ],
 })

@@ -1,7 +1,7 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav opened mode="side">
+    <mat-sidenav #sidenav [opened]="false" (positionChanged)="positionChange()" [mode]="mobileQuery.matches ? 'over' : 'side'">
         <div fxLayout="row wrap" style="width: 100%;">
-            <button fxFlex="100%" mat-button [routerLink]="['/pessoa']" routerLinkActive="router-link-active">Pessoa</button>
+            <button fxFlex="100%" mat-button (click)="sidenav.close()" [routerLink]="['/pessoa']" routerLinkActive="router-link-active">Pessoa</button>
             <button fxFlex="100%" mat-button [routerLink]="['/configuracoes']" routerLinkActive="router-link-active">Config</button>
             <button fxFlex="100%" mat-button [routerLink]="['/grid']" routerLinkActive="router-link-active">Config</button>
         </div>

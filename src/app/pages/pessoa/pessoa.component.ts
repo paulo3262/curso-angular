@@ -14,6 +14,36 @@ export class PessoaComponent implements OnInit, OnDestroy {
 
   loading: boolean = false;
 
+  colunas: any = [
+    {
+      field: 'FirstName',
+      label: "Primeiro Nome"
+    },
+    {
+      field: 'BirthDate',
+      label: "Data de nascimento"
+    },
+    {
+      field: 'Address',
+      label: "Endereço"
+    },
+  ]
+
+  colunas2: any = [
+    {
+      field: 'ID',
+      label: "###"
+    },
+    {
+      field: 'FirstName',
+      label: "Primeiro Nome"
+    },
+  ]
+
+  employes2: any = 'http://www.mocky.io/v2/5e7e7e74300000dd134afb33'
+
+  employes: string = 'http://www.mocky.io/v2/5e7e7d5b30000029004afb31';
+
   @ViewChild('form') form: NgForm;
 
   // form: FormGroup = new FormGroup({
@@ -27,6 +57,12 @@ export class PessoaComponent implements OnInit, OnDestroy {
   //   ]),
   //   telefone: new FormControl('')
   // });
+
+
+  selecionounaGrid(dadosSelecionado: any) {
+    console.log(dadosSelecionado);  
+    
+  }
 
   send(form: any) {
     this.loading = true;
@@ -64,6 +100,12 @@ export class PessoaComponent implements OnInit, OnDestroy {
         this.form.setValue(JSON.parse(local));
       });
     }
+
+    this.form.statusChanges.subscribe(staus => {
+      if(status === 'VALID') {
+        localStorage.setItem('pagina-pessoa', JSON.stringify(this.form.value));
+      }
+    })
   }
 
   ngOnDestroy(): void {

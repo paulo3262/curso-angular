@@ -15,7 +15,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [GridComponent],
   imports: [
-    RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
@@ -23,7 +22,6 @@ const routes: Routes = [
   ],
   exports: [
     GridComponent,
-    RouterModule
   ]
 
 })
