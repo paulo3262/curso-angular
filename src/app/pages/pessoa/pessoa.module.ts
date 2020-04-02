@@ -12,6 +12,7 @@ import { ComponentesModule } from 'componentes';
 import {PessoaService} from './service/pessoa.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GridModule } from '../grid/grid.module';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatCheckboxModule,
     FlexLayoutModule,
     NossoBtnModule,
     ComponentesModule,

@@ -4,6 +4,10 @@ import { GridComponent } from './grid.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DxDataGridModule } from 'devextreme-angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const routes: Routes = [
   {
@@ -18,7 +22,12 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    DxDataGridModule
+    MatInputModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCheckboxModule,
+    DxDataGridModule,
+    FlexLayoutModule,
   ],
   exports: [
     GridComponent,

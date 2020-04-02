@@ -27,6 +27,12 @@ export class PessoaComponent implements OnInit, OnDestroy {
       field: 'Address',
       label: "Endereço"
     },
+    {
+      field: 'Ativo',
+      label: "Ativo",
+      filterValues: [true, null],
+      type: 'boolean'
+    },
   ]
 
   colunas2: any = [

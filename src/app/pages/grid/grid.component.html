@@ -1,25 +1,33 @@
-<dx-data-grid
-    #grid
-    id="gridContainer"
-    [dataSource]="datadosDaGrid"
-    keyExpr="ID"
-    [hoverStateEnabled]="true"
-    (onSelectionChanged)="selecionouDevExtreme($event)"
-    [showBorders]="true"
-    [selectedRowKeys]="[]">
-    <dxo-filter-row 
-        [visible]="exibirFiltroColuna"></dxo-filter-row>
-    <dxo-header-filter 
-        [visible]="true"></dxo-header-filter>
-    <dxo-search-panel 
-        [visible]="true" 
-        [width]="240" 
-        placeholder="Search..."></dxo-search-panel>
-    <dxo-selection mode="single"></dxo-selection>
-    <dxi-column *ngFor="let column of colunas" [dataField]="column.field" [caption]="column.label"></dxi-column>
-</dx-data-grid>
-<div id="employeeInfo" *ngIf="grid.selectedRowKeys.length">
-    <pre>{{grid.instance.getSelectedRowsData() | json}}</pre>
-    <input type="text" name="" id="" disabled="true" [ngModel]="grid.instance.getSelectedRowsData()[0].FirstName">
-    <p class="employeeNotes">{{grid.instance.getSelectedRowsData()[0].Notes}}</p>
+<div *ngIf="formularioEsconder" fxLayout="row wrap" fxLayoutAlign="end end">
+    <button style="margin: 0 10px;" color="primary" mat-raised-button (click)="add()">Adicionar</button>
+    <button style="margin: 0 10px;" color="primary" mat-raised-button (click)="edit()">Editar</button>
+    <button style="margin: 0 10px;" color="primary" mat-raised-button (click)="ativarDesativar()" [disabled]="!linhaSelecionada">{{linhaSelecionada?.Ativo ? 'Desativar' : "Ativar"}}</button>
+</div>
+
+<div [hidden]="!formularioEsconder">
+    <dx-data-grid #grid id="gridContainer" [dataSource]="datadosDaGrid" [hoverStateEnabled]="true"
+        (onSelectionChanged)="selecionouDevExtreme($event)" [showBorders]="true" [selectedRowKeys]="[]">
+        <dxo-filter-row [visible]="exibirFiltroColuna"></dxo-filter-row>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+        <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+        <dxo-selection mode="single"></dxo-selection>
+        <dxi-column *ngFor="let column of colunas" [dataField]="column.field" [caption]="column.label" [dataType]="column?.type" trueText="Verdadeiro" falseText="Falso" [filterValues]="column?.filterValues"></dxi-column>
+    </dx-data-grid>
+    <div id="employeeInfo" *ngIf="grid.selectedRowKeys.length">
+        <pre>{{grid.instance.getSelectedRowsData() | json}}</pre>
+        <input type="text" name="" id="" disabled="true" [ngModel]="grid.instance.getSelectedRowsData()[0].FirstName">
+        <p class="employeeNotes">{{grid.instance.getSelectedRowsData()[0].Notes}}</p>
+    </div>
+</div>
+
+<div [hidden]="formularioEsconder">
+    <form [formGroup]="form" (ngSubmit)="salvar()">
+        <ng-content></ng-content>
+
+        <div fxLayout="row wrap" fxLayoutAlign="end end">
+            <button color="primary" mat-raised-button [disabled]="form.invalid">Salvar</button>
+            <a mat-raised-button color="accent" (click)="voltar()">Cancelar</a>
+        </div>
+    </form>
+
 </div>

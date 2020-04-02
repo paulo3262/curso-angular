@@ -20,8 +20,22 @@
         <button mat-raised-button color="primary" [disabled]="form.invalid || loading">Enviar</button>
     </form>
 
-    <curso-angular-grid (selecionou)="selecionounaGrid($event)" [dataSource]="employes" [colunas]="colunas"></curso-angular-grid>
-    <curso-angular-grid [exibirFiltroColuna]="false" [dataSource]="employes2" [colunas]="colunas2"></curso-angular-grid>
+    <curso-angular-grid (selecionou)="selecionounaGrid($event)" [dataSource]="employes" [colunas]="colunas">
+        <mat-form-field>
+            <input matInput name="FirstName" placeholder="Nome" ngModel required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput name="BirthDate" placeholder="Data" ngModel>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput name="Address" placeholder="Endereço" ngModel>
+        </mat-form-field>
+
+        <mat-checkbox name="Ativo" ngModel>Ativo</mat-checkbox>
+    </curso-angular-grid>
+    
 </div>
 
 
