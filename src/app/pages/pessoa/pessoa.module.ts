@@ -13,6 +13,7 @@ import {PessoaService} from './service/pessoa.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GridModule } from '../grid/grid.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { UploadModule } from 'src/app/components/upload/upload.module';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     HttpClientModule,
     GridModule,
+    UploadModule,
   ],
   exports: [
     RouterModule

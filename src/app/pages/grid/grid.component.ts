@@ -44,6 +44,8 @@ export class GridComponent implements OnInit {
 
   @Input() formularioEsconder: boolean = true;
   linhaSelecionada: any;
+
+  @Input() mestredetalhe: any;
   
   @Input() colunas: {field: string, label: string}[];
 

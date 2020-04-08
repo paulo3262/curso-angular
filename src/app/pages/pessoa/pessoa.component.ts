@@ -66,8 +66,8 @@ export class PessoaComponent implements OnInit, OnDestroy {
 
 
   selecionounaGrid(dadosSelecionado: any) {
-    console.log(dadosSelecionado);  
-    
+    console.log(dadosSelecionado);
+
   }
 
   send(form: any) {
@@ -108,10 +108,14 @@ export class PessoaComponent implements OnInit, OnDestroy {
     }
 
     this.form.statusChanges.subscribe(staus => {
-      if(status === 'VALID') {
+      if (status === 'VALID') {
         localStorage.setItem('pagina-pessoa', JSON.stringify(this.form.value));
       }
     })
+  }
+
+  onFileComplete(data: any) {
+    console.log(data); // We just print out data bubbled up from event emitter.
   }
 
   ngOnDestroy(): void {

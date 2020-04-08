@@ -6,21 +6,22 @@
             </mat-form-field>
             <mat-form-field fxFlex="100%" fxFlex.gt-sm="50%">
                 <input matInput placeholder="email" type="email" name="email" email required ngModel>
-            
+
                 <mat-error *ngIf="form.control.get('email').hasError('email')">Email errado</mat-error>
                 <mat-error *ngIf="form.control.get('email').hasError('required')"> Obrigatório</mat-error>
-            
-            </mat-form-field>  
+
+            </mat-form-field>
             <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign='center center'>
                 <mat-form-field fxFlex="100%" fxFlex.gt-sm="50%" fxFlexAlign="center">
                     <input matInput placeholder="telefone" name="telefone" ngModel>
-                </mat-form-field>       
+                </mat-form-field>
             </div>
         </div>
         <button mat-raised-button color="primary" [disabled]="form.invalid || loading">Enviar</button>
     </form>
 
-    <curso-angular-grid (selecionou)="selecionounaGrid($event)" [dataSource]="employes" [colunas]="colunas">
+    <curso-angular-grid [mestredetalhe]="mestredetalhe" (selecionou)="selecionounaGrid($event)" [dataSource]="employes"
+        [colunas]="colunas">
         <mat-form-field>
             <input matInput name="FirstName" placeholder="Nome" ngModel required>
         </mat-form-field>
@@ -33,9 +34,23 @@
             <input matInput name="Address" placeholder="Endereço" ngModel>
         </mat-form-field>
 
-        <mat-checkbox name="Ativo" ngModel>Ativo</mat-checkbox>
+        <mat-checkbox name="Ativo" ngModel>Ativo</mat-checkbox>        
     </curso-angular-grid>
-    
+    <ng-template #mestredetalhe let-grid>
+        <pre>{{grid | json}}</pre>
+        <mat-form-field>
+            <input matInput disabled placeholder="Nome" [ngModel]="grid?.FirstName">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput disabled placeholder="Endereço" [ngModel]="grid?.Address">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput disabled placeholder="Notes" [ngModel]="grid?.Notes">
+        </mat-form-field>
+    </ng-template>
+
+    <app-material-file-upload (complete)="onFileComplete($event)"></app-material-file-upload>
+
 </div>
 
 
